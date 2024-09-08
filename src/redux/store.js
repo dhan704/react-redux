@@ -1,16 +1,20 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 
-const initialState = {
-  value: 0,
-  showLabel: true,
-};
+const appReducer = combineReducers({
+  value: valueReducer,
+  showLabel: showLabelReducer,
+});
+// const initialState = {
+//   value: 0,
+//   showLabel: true,
+// };
 
-function appReducer(prevState = initialState, action) {
-  return {
-    value: valueReducer(prevState.value, action),
-    showLabel: showLabelReducer(prevState.showLabel, action),
-  };
-}
+// function appReducer(prevState = initialState, action) {
+//   return {
+//     value: valueReducer(prevState.value, action),
+//     showLabel: showLabelReducer(prevState.showLabel, action),
+//   };
+// }
 
 // function appReducer(prevState = initialState, action) {
 //   switch (action.type) {
