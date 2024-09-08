@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux";
 
 const appReducer = combineReducers({
-  value: valueReducer,
-  showLabel: showLabelReducer,
+  value,
+  showLabel,
 });
 // const initialState = {
 //   value: 0,
@@ -38,7 +38,7 @@ const appReducer = combineReducers({
 //   }
 // }
 
-function valueReducer(prevState = 0, action) {
+function value(prevState = 0, action) {
   switch (action.type) {
     case "increment":
       return prevState + 1;
@@ -50,7 +50,7 @@ function valueReducer(prevState = 0, action) {
   }
 }
 
-function showLabelReducer(prevState = true, action) {
+function showLabel(prevState = true, action) {
   switch (action.type) {
     case "showLabel":
       return action.payload;
