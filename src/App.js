@@ -1,15 +1,26 @@
 import "./App.css";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
-import Counter from "./Counter";
+// import Counter from "./components/Counter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Headers from "./components/Headers";
+import Settings from "./components/Settings";
+import Counter from "./components/Counter";
+import Home from "./components/Home";
 
 function App() {
   return (
-    <Provider store={store}>
-      <div className="App">
-        <Counter></Counter>
-      </div>
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <Routes>
+          <Route path="/" element={<Headers />}>
+            <Route index element={<Home />}></Route>
+            <Route path="settings" element={<Settings />}></Route>
+            <Route path="counter" element={<Counter />}></Route>
+          </Route>
+        </Routes>
+      </Provider>
+    </BrowserRouter>
   );
 }
 
