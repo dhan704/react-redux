@@ -1,5 +1,7 @@
 import { createStore, combineReducers } from "redux";
 
+//combine Reducers
+
 const appReducer = combineReducers({
   value,
   showLabel,
@@ -58,6 +60,29 @@ function showLabel(prevState = true, action) {
       return prevState;
   }
 }
+
+//Action creator
+
+function increment() {
+  return {
+    type: "increment",
+  };
+}
+
+function decrement() {
+  return {
+    type: "decrement",
+  };
+}
+
+function setShowLabel(payload) {
+  return {
+    type: "showLabel",
+    payload
+  };
+}
 const store = createStore(appReducer);
+
+export { increment, decrement, setShowLabel };
 
 export default store;

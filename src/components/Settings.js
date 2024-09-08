@@ -1,16 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { setShowLabel } from "../redux/store";
 
 function Settings() {
-  const value = useSelector((state) => 
-    state.showLabel
-  );
+  const value = useSelector((state) => state.showLabel);
   const dispatch = useDispatch();
   const handleShowLabel = (event) => {
-    dispatch({
-      type: "showLabel",
-      payload: event.target.checked,
-    });
+    dispatch(setShowLabel(event.target.checked));
   };
   return (
     <div>
